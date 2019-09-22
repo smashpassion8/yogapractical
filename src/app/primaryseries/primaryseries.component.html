@@ -1,0 +1,58 @@
+<!-- <h1>Ashtang Yoga Primary Series</h1> -->
+
+    <!-- <ul>
+        <li *ngFor="let a of asanas">
+            {{ a.aname }}
+        </li>
+    </ul> -->
+
+
+    <table align="center">
+		<tr>
+    		<td *ngFor = "let ac of asanaCat; index as i" valign="top" align="center">
+                    <font color="red"> <strong> {{ i + 1 }} {{ ac.asanaCatName }} <br/><br/> <!--4 Weeks --></strong></font>
+    			<table>
+    			<tr *ngFor = "let a of ac.asanas; index as j">
+                        <td>
+                                {{ j + 1 }}
+                            </td>
+    			<td>
+                        <a mat-button [routerLink]="['/asanaDetail', a.asanaId]">{{ a.asanaName }} </a> 
+                </td>
+                    <td>
+                        <!-- <img src="../../assets/images/ChaturangaDandasana.jpg" style="width:50px;height:50px;"/>-->
+                        <a target="_blank" href="{{ a.imageURL }}">
+                            <img src="{{ a.imageURL }}" alt="{{a.asanaName}}" style="width:50px;height:50px;">
+                          </a>
+                         <!-- <img src="{{ a.imageURL }}" style="width:50px;height:50px;"/> -->
+                    </td>
+    			</tr>
+    			</table>
+    			</td>
+		</tr>
+	</table>	
+<!-- <div>
+    <ul >
+        <li *ngFor = "let ac of asanaCat">
+            {{ ac.asanaCatName }}
+            <ul *ngFor = "let a of ac.asanas">
+                <li>{{ a.asanaName }} <img src="{{ a.imageURL }} " style="width:50px;height:50px;"/></li>
+            </ul>
+        </li>
+    </ul>
+
+    <table>
+		<tr *ngFor = "let ac of asanaCat; index as i" valign="top" align="center">
+    		<td>
+                    <font color="red"> <strong> {{ i + 1 }} {{ ac.asanaCatName }} <br> 4 Weeks </strong></font>
+    			<table>
+    			<tr *ngFor = "let a of ac.asanas; index as j">
+    			<td>
+    				{{ j + 1 }} {{ a.asanaName }} 
+                </td>
+    			</tr>
+    			</table>
+    			</td>
+		</tr>
+	</table>	
+</div> -->
