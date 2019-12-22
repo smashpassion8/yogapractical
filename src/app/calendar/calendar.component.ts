@@ -61,9 +61,25 @@ export class CalendarComponent implements OnInit {
     { title: 'event 1', date: '2019-09-01' }
   ];
 
+  addEvent1(): void {
+    // this.events = [
+      // ...this.events,
+      // {
+        // title: 'New event',
+        // start: startOfDay(new Date()),
+        // end: endOfDay(new Date()),
+        // color: colors.red,
+    //     draggable: true,
+    //     resizable: {
+    //       beforeStart: true,
+    //       afterEnd: true
+    //     }
+    //   }
+    // ];
+  }
+
   addEvent() {
-    this.calendarComponent.control.message("Welcome!");
-    this.calendarComponent.push(
+    this.calendarEvents.push(
       { title: 'event 2', date: '2019-09-11' }
     );  
   }
