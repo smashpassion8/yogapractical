@@ -9,15 +9,16 @@ import { Asana } from '@app/_models';
 })
 export class AsanaService {
   private baseUrl = 'http://localhost:8080/asanaCategory/getAllAsanaCategories';
-  
 
-  constructor(private http: HttpClient) { 
+
+  constructor(private http: HttpClient) {
     // this.baseUrl = 'http://localhost:8080/asanaCategory/getAllAsanas';
   }
 
   getPrimarySeriesList(): Observable<any> {
-      this.baseUrl = 'https://springboot2-jpa-crud-example.herokuapp.com/asanaCategory/getAllAsanaCategories';  
-      
+      // this.baseUrl = 'https://springboot2-jpa-crud-example.herokuapp.com/asanaCategory/getAllAsanaCategories';
+      // this.baseUrl = "http://localhost:8080/yoga/findAllFlow";
+      this.baseUrl = 'https://springboot2-jpa-crud-example.herokuapp.com/yoga/findAllFlow';
   //   this.http.get(`${this.baseUrl}`).subscribe(
   //     data => {
   //       // this.testResponse = data;
