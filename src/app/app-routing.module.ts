@@ -15,6 +15,8 @@ import { MudraComponent } from './mudra';
 import { TotalityPComponent } from './totality-p';
 import { CalendarComponent } from './calendar/calendar.component';
 import { FullCalendarComponent } from './full-calendar/full-calendar.component';
+import { Article } from './_models/article';
+import { ArticleComponent } from './article/article.component';
 
 
 const routes: Routes = [
@@ -32,6 +34,7 @@ const routes: Routes = [
   { path: 'totality-p', component: TotalityPComponent},
   { path: 'calendar', component: CalendarComponent},
   { path: 'fullcalendar', component: FullCalendarComponent},
+  { path: 'article', component: ArticleComponent},
 
   // otherwise redirect to home
   { path: '**', redirectTo: '' }

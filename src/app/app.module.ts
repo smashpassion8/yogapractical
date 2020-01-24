@@ -25,6 +25,11 @@ import { CalendarComponent } from './calendar/calendar.component';
 import { FullCalendarComponent } from './full-calendar/full-calendar.component';
 
 import { FullCalendarModule } from '@fullcalendar/angular';
+import { ArticleComponent } from './article/article.component';
+
+//For InMemory testing
+import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { DataService } from './_services/data.service';
 
 @NgModule({
   declarations: [
@@ -43,6 +48,7 @@ import { FullCalendarModule } from '@fullcalendar/angular';
     TotalityPComponent,
     CalendarComponent,
     FullCalendarComponent,
+    ArticleComponent,
 
   ],
   imports: [
@@ -50,7 +56,8 @@ import { FullCalendarModule } from '@fullcalendar/angular';
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
-    FullCalendarModule
+    FullCalendarModule,
+    InMemoryWebApiModule.forRoot(DataService)
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
