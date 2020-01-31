@@ -18,7 +18,7 @@ export class AsanaService {
   getPrimarySeriesList(): Observable<any> {
       // this.baseUrl = 'https://springboot2-jpa-crud-example.herokuapp.com/asanaCategory/getAllAsanaCategories';
       // this.baseUrl = "http://localhost:8080/yoga/findAllFlow";
-      this.baseUrl = 'https://springboot2-jpa-crud-example.herokuapp.com/yoga/findAllFlow';
+      this.baseUrl = 'https://noume-ams-backend.herokuapp.com/yoga/findAllFlow';
   //   this.http.get(`${this.baseUrl}`).subscribe(
   //     data => {
   //       // this.testResponse = data;
