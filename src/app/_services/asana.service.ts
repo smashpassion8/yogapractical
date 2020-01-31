@@ -3,13 +3,14 @@ import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { of } from 'rxjs';
 import { Asana } from '@app/_models';
+import 'rxjs/Rx';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AsanaService {
   private baseUrl = 'http://localhost:8080/asanaCategory/getAllAsanaCategories';
-
+  data;
 
   constructor(private http: HttpClient) {
     // this.baseUrl = 'http://localhost:8080/asanaCategory/getAllAsanas';
@@ -18,12 +19,17 @@ export class AsanaService {
   getPrimarySeriesList(): Observable<any> {
       // this.baseUrl = 'https://springboot2-jpa-crud-example.herokuapp.com/asanaCategory/getAllAsanaCategories';
       // this.baseUrl = "http://localhost:8080/yoga/findAllFlow";
-      this.baseUrl = 'https://noume-ams-backend.herokuapp.com/yoga/findAllFlow';
-  //   this.http.get(`${this.baseUrl}`).subscribe(
-  //     data => {
-  //       // this.testResponse = data;
-  //       console.log("I CANT SEE DATA HERE: ", data);
-  //     }
+      this.baseUrl = 'http://noume-ams-backend.herokuapp.com/api/hms/asana/findAllAsanaFlow';
+      
+    this.http.get(`${this.baseUrl}`).subscribe(
+      data => {
+        // this.testResponse = data;
+        console.log("I CANT SEE DATA HERE: ", data);
+        this.data = data;
+      })
+
+      return this.data;
+
   // );
   //   console.log(this.http.get(`${this.baseUrl}`));
   //   return of([
@@ -115,8 +121,38 @@ export class AsanaService {
   //       {"asanaId":107,"asanaName":"Shavasana","asanaCat":null,"imageURL":"../../assets/images/Shavasana.jpg"}]
   //     }
   //   ]);
-  return this.http.get(`${this.baseUrl}`);
+      
+      // this.http.get(`${this.baseUrl}`)
+      // .subscribe((res: Response) => {
+      //   console.log(res);
+      // })
+ 
+   
+      // .map(this.extractData)
+      // .catch(this.handleError);
+      
+
+  // return this.http.get(`${this.baseUrl}`);
   }
+
+  private extractData(res: Response) {
+    let body = res.json();  // If response is a JSON use json()
+    console.log(body);
+    // if (body) {
+    //     return body.data || body;
+    //  } else {
+    //     return {};
+    //  }
+ }
+ 
+ private handleError(error: any) {
+    // In a real world app, we might use a remote logging infrastructure
+    // We'd also dig deeper into the error to get a better message
+    let errMsg = (error.message) ? error.message :
+    error.status ? `${error.status} - ${error.statusText}` : 'Server error';
+         console.error(errMsg); // log to console instead
+         return Observable.throw(errMsg);
+ }
 
   getGravityPoseList(): Observable<any> {
     return of([
